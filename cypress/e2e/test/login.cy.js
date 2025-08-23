@@ -75,10 +75,7 @@ describe("Fitur Login OrangeHRM", () => {
       cy.get('[name="username"]').clear().type("Admin");
       cy.get('[name="password"]').clear().type("salah");
       cy.get('button[type="submit"]').click();
-      cy.get(".oxd-alert-content").should(
-        "contain.text",
-        "Invalid credentials"
-      );
+      cy.get(".oxd-alert-content").should("contain.text", "Invalid credentials");
     }
   });
 
