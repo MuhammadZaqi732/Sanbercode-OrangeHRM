@@ -1,1 +1,2 @@
 # Sanbercode-OrangeHRM
+semoga lancar
