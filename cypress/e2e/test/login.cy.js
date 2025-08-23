@@ -1,8 +1,6 @@
 describe("Fitur Login OrangeHRM", () => {
   beforeEach(() => {
-    cy.visit(
-      "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-    );
+    cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
   });
 
   it("TC-001 - Login dengan username & password benar", () => {
