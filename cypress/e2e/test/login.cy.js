@@ -92,9 +92,8 @@ describe("Fitur Login OrangeHRM", () => {
     cy.url().should("include", "requestPasswordResetCode");
   });
 
-  it("TC-014 - Kompatibilitas browser (manual check)", () => {
-    // Catatan: Cypress hanya jalan di 1 browser per run
-    // Jadi test ini lebih cocok manual atau pakai CI multi-browser
+  it("TC-014 - Kompatibilitas browser (browser berbeda)", () => {
+    // lebih cocok test manual
     cy.get('[name="username"]').type("Admin");
     cy.get('[name="password"]').type("admin123");
     cy.get('button[type="submit"]').click();
