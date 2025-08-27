@@ -13,7 +13,6 @@ describe("Login menggunakan POM + Fixtures", () => {
     loginPage.typePassword(loginData.validUserPassword);
     loginPage.clickLogin();
     loginPage.verifyLoginSuccess();
-    // cy.url().should("include", "/dashboard");
   });
 
   it("Login gagal dengan password salah", () => {
@@ -21,6 +20,5 @@ describe("Login menggunakan POM + Fixtures", () => {
     loginPage.typePassword(loginData.invalidPassword);
     loginPage.clickLogin();
     loginPage.verifyLoginFailed();
-    // cy.get(".oxd-alert-content").should("contain.text", "Invalid credentials");
   });
 });
