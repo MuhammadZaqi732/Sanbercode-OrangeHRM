@@ -22,4 +22,3 @@ describe("Login menggunakan POM + Fixtures", () => {
     loginPage.verifyLoginFailed();
   });
 });
-
