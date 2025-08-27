@@ -8,9 +8,14 @@ describe("Fitur Login OrangeHRM", () => {
   it("TC-001 - Login dengan username & password benar", () => {
     cy.get('[name="username"]').type("Admin");
     cy.get('[name="password"]').type("admin123");
-    cy.intercept('GET', 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/dashboard/employees/action-summary').as("actionSummary");
+
+    cy.intercept(
+      "GET",
+      "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/dashboard/employees/action-summary"
+    ).as("actionSummary");
+
     cy.get('button[type="submit"]').click();
-    cy.wait('@actionSummary');
+    cy.wait("@actionSummary");
     cy.url().should("include", "/dashboard");
   });
 
@@ -55,9 +60,14 @@ describe("Fitur Login OrangeHRM", () => {
   it("TC-008 - Login dengan username huruf kecil semua", () => {
     cy.get('[name="username"]').type("admin");
     cy.get('[name="password"]').type("admin123");
-    cy.intercept('GET', 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/dashboard/shortcuts').as('shortcuts');
+
+    cy.intercept(
+      "GET",
+      "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/dashboard/shortcuts"
+    ).as("shortcuts");
+
     cy.get('button[type="submit"]').click();
-    cy.wait('@shortcuts');
+    cy.wait("@shortcuts");
     cy.url().should("include", "/dashboard");
   });
 
@@ -71,8 +81,13 @@ describe("Fitur Login OrangeHRM", () => {
   it("TC-010 - Login menggunakan tombol Enter", () => {
     cy.get('[name="username"]').type("Admin");
     cy.get('[name="password"]').type("admin123{enter}");
-    cy.intercept('GET', 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/dashboard/employees/subunit').as('subunit');
-    cy.wait('@subunit');
+
+    cy.intercept(
+      "GET",
+      "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/dashboard/employees/subunit"
+    ).as("subunit");
+
+    cy.wait("@subunit");
     cy.url().should("include", "/dashboard");
   });
 
