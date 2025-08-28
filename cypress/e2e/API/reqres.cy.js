@@ -1,5 +1,3 @@
-/// <reference types="cypress"/>
-
 describe('Reqres API Testing', () => {
 
     it('1. GET List Users ', () => {
