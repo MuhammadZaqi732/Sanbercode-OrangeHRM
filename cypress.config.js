@@ -6,6 +6,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     supportFile: "cypress/support/e2e.js",
+    pageLoadTimeout: 120000,
     defaultCommandTimeout: 30000,
     baseUrl: "https://opensource-demo.orangehrmlive.com/web/index.php"
   },
