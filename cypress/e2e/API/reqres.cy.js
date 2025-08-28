@@ -29,7 +29,7 @@ describe('Reqres API Testing', () => {
     })
 
     it('4. GET List Resource', () => {
-        cy.request({method: 'GET', url: 'https://reqres.in/api/unknown', failOnStatusCode: false, headers: {
+        cy.request({method: 'GET', url: 'https://reqres.in/api/unknown', headers: {
             'x-api-key': 'reqres-free-v1'
         },
     })
