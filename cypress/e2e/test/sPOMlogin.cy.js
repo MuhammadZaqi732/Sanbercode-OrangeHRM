@@ -11,7 +11,9 @@ describe("Login menggunakan POM + Fixtures", () => {
   it("Login berhasil dengan data valid", () => {
     loginPage.typeUsername(loginData.validUsername);
     loginPage.typePassword(loginData.validUserPassword);
+    loginPage.interceptLogin();
     loginPage.clickLogin();
+    loginPage.verifyintercept();
     loginPage.verifyLoginSuccess();
   });
 
