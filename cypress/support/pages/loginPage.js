@@ -8,8 +8,14 @@ class loginPage {
   typePassword(password) {
     cy.get('input[name="password"]').type(password);
   }
+  interceptLogin(){
+  cy.intercept('GET', 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/dashboard/employees/action-summary').as('actionSummary');
+  }
   clickLogin() {
     cy.get('button[type="submit"]').click();
+  }
+  verifyintercept() {
+    cy.wait('@actionSummary').its('response.statusCode').should('eq', 200);
   }
   verifyLoginSuccess() {
     cy.url().should("include", "/dashboard");
