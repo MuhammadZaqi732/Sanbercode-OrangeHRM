@@ -32,15 +32,27 @@ Cypress otomatis menghasilkan:
 ```bash
 Sanbercode-OrangeHRM/
 ├── cypress/
-│   ├── e2e/
-│   │   ├── login.cy.js
-│   │   ├── dashboard.cy.js
-│   │   └── directory.cy.js
+│   ├── e2e/                # Semua test case masuk sini
+│   │   ├── API/
+│   │   │   └── reqres.cy.js
+│   │   ├── test/  
+│   │   │   └── login.cy.js
+│   │   │   └── dashboard.cy.js
+│   │   │   └── forgotPassword.cy.js
+│   │   └── spec.cy.js      # bisa hapus kalau cuma dummy
+│   ├── fixtures/           # data dummy/json
+│   │   └── directoryData.json
+│   │   └── loginData.json
 │   ├── support/
-│   │   └── e2e.js
-│   └── pages/
-│       ├── loginPage.js
-│       └── dashboardPage.js
+│   │   ├── e2e.js
+│   │   └── pages/          # Page Object Model
+│   │       ├── loginPage.js
+│   │       ├── dashboardPage.js
+│   │       └── forgotPasswordPage.js
+│   ├── screenshots/        # biarin auto-generate
+│   └── videos/             # biarin auto-generate
+├── .gitignore
 ├── cypress.config.js
 ├── package.json
 └── README.md
+
