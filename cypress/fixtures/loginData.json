@@ -1,6 +1,10 @@
 {
   "validUsername": "Admin",
-  "validUserPassword": "admin123",
+  "validPassword": "admin123",
+
   "invalidUsername": "Admin",
-  "invalidPassword": "salah123"
+  "invalidPassword": "salah123",
+
+  "lowercaseUsername": "admin",
+  "uppercasePassword": "ADMIN123"
 }

@@ -9,7 +9,7 @@ describe("Forgot Password intercept dan POM", () => {
     forgotPage.clickForgotPassword();
   });
 
-  it("Berhasil reset password dengan username valid", () => {
+  it("TC-001 Berhasil reset password dengan username valid", () => {
    forgotPage.typeUsername(loginData.validUsername);
    forgotPage.interceptForgot();
    forgotPage.clickReset();
@@ -17,9 +17,20 @@ describe("Forgot Password intercept dan POM", () => {
    forgotPage.verifyResetSuccess();
   });
 
-  it("Gagal reset password dengan username salah", () => {
+  it("TC-002 Gagal reset password dengan username salah", () => {
    forgotPage.typeUsername('salah');
    forgotPage.clickReset();
      cy.contains("Reset Password link sent successfully").should("not.exist");
+  });
+
+  it("TC-003 - Gagal reset password dengan username kosong", () => {
+    forgotPage.clickReset();
+    forgotPage.verifyRequiredField();
+  });
+
+  it("TC-005 - Username lowercase tidak diterima", () => {
+    forgotPage.typeUsername(loginData.lowercaseUsername);
+    forgotPage.clickReset();
+    forgotPage.verifyResetFailed();
   });
 });

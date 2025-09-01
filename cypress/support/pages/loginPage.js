@@ -14,7 +14,10 @@ class loginPage {
   clickLogin() {
     cy.get('button[type="submit"]').click();
   }
-  verifyintercept() {
+   pressEnterLogin() {
+    cy.get('button[type="submit"]').type("{enter}");
+  }
+  verifyIntercept() {
     cy.wait('@actionSummary').its('response.statusCode').should('eq', 200);
   }
   verifyLoginSuccess() {
@@ -24,10 +27,22 @@ class loginPage {
     cy.get(".oxd-alert-content").should("contain.text", "Invalid credentials");
   }
   verifyUsernameFailed() {
-    cy.xpath(".oxd-alert-content").should("contain.text", "Username is required");
+    cy.get(".oxd-input-field-error-message").should("contain.text", "Required");
   }
   verifyPasswordFailed() {
-    cy.xpath(".oxd-alert-content").should("contain.text", "Password is required");
+    cy.get(".oxd-input-field-error-message").should("contain.text", "Required");
+  }
+  verifyRequiredField() {
+    cy.get(".oxd-input-field-error-message").should("have.length", 2).each($el => {
+        expect($el).to.contain.text('Required');
+      });
+  }
+  verifyPlaceholder() {
+    cy.get('input[name="username"]').should('have.attr', 'placeholder', 'Username');
+    cy.get('input[name="password"]').should('have.attr', 'placeholder', 'Password');
+  }
+  clickForgotPassword() {
+  cy.contains("Forgot your password?").click();
   }
 }
 export default new loginPage();

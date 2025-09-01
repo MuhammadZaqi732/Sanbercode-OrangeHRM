@@ -1,0 +1,8 @@
+{
+  "searchName": "a",
+  "validName": "Ranga Akunuri",
+  "invalidName": "TidakAdaNama",
+  "jobTitle": "Account Assistant",
+  "location": "New York Sales Office",
+  "allEmployees": ["Ranga Akunuri", "JANE DOE", "JOHN SMITH"]
+}
